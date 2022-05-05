@@ -1,8 +1,8 @@
 import Head from 'next/head'
 
 import type { NextPage } from 'next'
-import { IconButton } from '../components/atoms/IconButton'
-import MenuIcon from '../../public/assets/menu.svg'
+
+import { Logo } from '../components/atoms/Logo'
 
 const Home: NextPage = () => {
   return (
@@ -11,11 +11,11 @@ const Home: NextPage = () => {
         <title>Charleston Amaral - Desenvolvedor Web Full Stack</title>
       </Head>
 
+      <Logo isHeading>Charleston Amaral.</Logo>
+
       <h1 className="text-3xl font-bold underline">
         Hello world!
       </h1>
-
-      <IconButton src={MenuIcon} alt="Ícone menu de navegação" />
     </>
   )
 }
