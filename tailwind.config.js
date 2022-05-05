@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        newGray: {
+          50: '#DBDBDB',
+          700: '#1E1E1E'
+        }
+      },
       fontFamily: {
         'sans': ['Poppins', 'sans-serif']
       }
