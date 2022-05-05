@@ -1,7 +1,7 @@
-import { HTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import Image, { StaticImageData } from "next/image";
 
-export interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   src: StaticImageData,
   alt: string
 }
