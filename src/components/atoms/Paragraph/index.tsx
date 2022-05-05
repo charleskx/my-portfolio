@@ -2,7 +2,7 @@ import { HTMLAttributes, ReactNode } from "react";
 
 export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode
-  className: string
+  className?: string
 }
 
 function Paragraph({ children, className, ...props }: ParagraphProps) {

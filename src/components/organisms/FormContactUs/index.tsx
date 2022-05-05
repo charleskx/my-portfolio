@@ -10,7 +10,7 @@ function FormContactUs() {
         subtitle="Contate-me"
       />
 
-      <Paragraph>
+      <Paragraph className="mt-5 mb-10">
         Caso você tenha uma pergunta ou apenas queira dizer oi, não hesite em usar o formulário.
       </Paragraph>
 
