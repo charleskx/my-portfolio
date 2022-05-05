@@ -3,7 +3,7 @@ import { CardProject, CardProjectProps } from "../../molecules/CardProject"
 import { Heading } from "../../molecules/Heading"
 
 interface ProjectProps extends CardProjectProps {
-  id: string
+  id: number
 }
 
 export interface ContainerProjectsProps {

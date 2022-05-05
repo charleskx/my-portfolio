@@ -1,44 +1,63 @@
 import Head from 'next/head'
 
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
+
 import { Footer } from '../components/templates/Footer'
 import { ContactUs } from '../components/templates/ContactUs'
-import { ContainerProjects } from '../components/organisms/ContainerProjects'
+import { MyProjects } from '../components/templates/MyProjects'
+import { ContainerProjectsProps } from '../components/organisms/ContainerProjects'
+import { CardProjectProps } from '../components/molecules/CardProject'
 
-const Home: NextPage = () => {
+interface IGitHub {
+  id: number
+  name: string
+  html_url: string
+  description?: string
+}
+
+interface IProjects extends CardProjectProps {
+  id: number
+}
+
+interface HomeProps {
+  projects?: Array<IProjects>
+}
+
+const Home: NextPage = ({ projects }: HomeProps) => {
   return (
     <>
       <Head>
         <title>Charleston Amaral - Desenvolvedor Web Full Stack</title>
       </Head>
-
-      <ContainerProjects
-        projects={[
-          {
-            id: '1',
-            description: 'Quickly build beautiful React apps. AEGIR is a simple, customizable component library for building React apps faster and more affordable. Follow your own design system.',
-            title: '03. aegir-components',
-            url: 'https://github.com/charleskx/aegir-components'
-          },
-          {
-            id: '2',
-            description: 'Quickly build beautiful React apps. AEGIR is a simple, customizable component library for building React apps faster and more affordable. Follow your own design system.',
-            title: '03. aegir-components',
-            url: 'https://github.com/charleskx/aegir-components'
-          },
-          {
-            id: '3',
-            description: 'Quickly build beautiful React apps. AEGIR is a simple, customizable component library for building React apps faster and more affordable. Follow your own design system.',
-            title: '03. aegir-components',
-            url: 'https://github.com/charleskx/aegir-components'
-          }
-        ]}
-      />
       
+      <MyProjects projects={projects} />
       <ContactUs />
       <Footer />
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const projects: ContainerProjectsProps = await fetch('https://api.github.com/users/charleskx/repos')
+    .then((response) => response.json())
+    .then((data) => {
+      return data.sort((a: IGitHub, b: IGitHub) => b.id - a.id)
+        .slice(0, 3)
+        .map((gitHub: IGitHub, key: number) => {
+          return {
+            id: gitHub.id,
+            description: gitHub.description ?? '',
+            title: `${(key + 1).toString().padStart(2, '0')}. ${gitHub.name}`,
+            url: gitHub.html_url
+          }
+        })
+    })
+
+  return {
+    props: {
+      projects
+    }
+  }
 }
 
 export default Home

@@ -15,7 +15,7 @@ export interface CardProjectProps {
 function CardProject({ description, title, url }: CardProjectProps) {
   return (
     <div className="flex flex-col gap-4 items-end">
-      <article className="flex flex-col flex-1 gap-2">
+      <article className="flex flex-col gap-2 w-full">
         <Subtitle>{title}</Subtitle>
         <Paragraph>{description}</Paragraph>
       </article>
