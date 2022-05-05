@@ -9,6 +9,9 @@ module.exports = {
         newGray: {
           50: '#DBDBDB',
           700: '#1E1E1E'
+        },
+        newIndigo: {
+          400: '#63BA90'
         }
       },
       fontFamily: {

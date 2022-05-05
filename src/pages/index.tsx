@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import type { NextPage } from 'next'
-import { TextArea } from '../components/atoms/TextArea'
+import { Button } from '../components/atoms/Button'
 
 const Home: NextPage = () => {
   return (
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       </h1>
 
       <form>
-        <TextArea name='mensagem' placeholder='Mensagem' />
+        <Button>Enviar</Button>
       </form>
     </>
   )
