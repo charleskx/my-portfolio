@@ -1,7 +1,8 @@
 import Head from 'next/head'
 
 import type { NextPage } from 'next'
-import { Button } from '../components/atoms/Button'
+import { IconButton } from '../components/atoms/IconButton'
+import MenuIcon from '../../public/assets/menu.svg'
 
 const Home: NextPage = () => {
   return (
@@ -14,9 +15,7 @@ const Home: NextPage = () => {
         Hello world!
       </h1>
 
-      <form>
-        <Button>Enviar</Button>
-      </form>
+      <IconButton src={MenuIcon} alt="Ícone menu de navegação" />
     </>
   )
 }

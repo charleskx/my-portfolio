@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         newGray: {
           50: '#DBDBDB',
+          500: '#323232',
           700: '#1E1E1E'
         },
         newIndigo: {
