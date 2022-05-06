@@ -1,17 +1,30 @@
-import { IconButton } from "../../atoms/IconButton";
 import { Logo } from "../../atoms/Logo";
+import { Navigation } from "../../organisms/Navigation";
 
-import MenuIcon from '../../../../public/assets/menu.svg'
+const urls = [
+  {
+    id: 1,
+    title: 'Sobre',
+    anchor: '#aboutUs'
+  },
+  {
+    id: 2,
+    title: 'Projetos',
+    anchor: '#projects'
+  },
+  {
+    id: 1,
+    title: 'Contate',
+    anchor: '#ContactUs'
+  }
+]
 
 function Header() {
   return (
     <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white">
       <Logo isHeading>Charleston Amaral.</Logo>
 
-      <IconButton
-        alt="Ícone de navegação do menu"
-        src={MenuIcon}
-      />
+      <Navigation navigate={urls} />
     </header>
   )
 }
