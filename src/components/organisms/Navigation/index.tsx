@@ -26,7 +26,7 @@ export interface NavigationProps {
 
 function Navigation({ navigate, social }: NavigationProps) {
   return (
-    <Popover>
+    <Popover className="md:hidden">
       {({ close }) => (
         <>
           <PopoverButton>

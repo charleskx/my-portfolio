@@ -13,13 +13,13 @@ export interface ExperiencesProps {
 
 function Experiences({ experiences }: ExperiencesProps) {
   return (
-    <>
+    <div className="md:max-w-7xl w-full">
       <Heading
         subtitle="Olá, sou Charleston. Prazer em conhecê-lo."
         title="Sobre mim"
       />
 
-      <Paragraph className="mt-4 mb-12">
+      <Paragraph className="mt-4 mb-12 md:mt-6 md:mb-32">
         Gosto de criar coisas que vivem na internet. Meu interesse em desenvolvimento web começou em 2011, quando decidi tentar editar temas personalizados do Orkut - descobri que personalizar um perfil de rede social me ensinou muito sobre HTML e CSS e JavaScript, mesmo que o perfil só ficasse estilizado na minha maquina!
       </Paragraph>
 
@@ -37,7 +37,7 @@ function Experiences({ experiences }: ExperiencesProps) {
           })
         }
       </ol>
-    </>
+    </div>
   )
 }
 

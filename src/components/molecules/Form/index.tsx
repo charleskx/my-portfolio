@@ -19,7 +19,7 @@ function Form() {
 
   return (
     <form
-      className="flex flex-col gap-4"
+      className="flex flex-col gap-4 md:gap-6 md:items-end"
       onSubmit={handleSubmit(onSubmitting)}
     >
       <Input
@@ -42,7 +42,7 @@ function Form() {
         validation={{ required: true, min: 10 }}
       />
 
-      <Button className="w-full" type="submit">Enviar</Button>
+      <Button className="w-full md:w-52" type="submit">Enviar</Button>
     </form>
   )
 }

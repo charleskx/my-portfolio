@@ -12,13 +12,13 @@ export interface ProjectsProps {
 
 function Projects({ projects }: ProjectsProps) {
   return (
-    <>
+    <div className="md:max-w-7xl w-full">
       <Heading
         subtitle="Eu projeto e codifico coisas lindamente simples e adoro o que faço."
         title="Projetos"
       />
 
-      <Paragraph className="mt-4 mb-12">
+      <Paragraph className="mt-4 mb-12 md:mt-6 md:mb-32">
         No meu tempo livre, gosto de mexer em projetos paralelos. Esses são alguns dos resultados.
       </Paragraph>
 
@@ -36,7 +36,7 @@ function Projects({ projects }: ProjectsProps) {
           })
         }
       </div>
-    </>
+    </div>
   )
 }
 
