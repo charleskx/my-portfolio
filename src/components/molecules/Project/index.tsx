@@ -1,7 +1,6 @@
-import Image from "next/image"
+import { FiArrowRight } from "react-icons/fi"
 import Link from "next/link"
 
-import ArrowRightIcon from '../../../../public/assets/arrowRight.svg'
 import { Card } from "../Card"
 
 export interface ProjectProps {
@@ -17,20 +16,14 @@ function Project({ description, title, url }: ProjectProps) {
 
       <Link href={url}>
         <a
-          className="flex justify-center gap-4 text-newGray-700 dark:text-white font-medium opacity-80 hover:opacity-100 transition-opacity"
+          className="flex justify-center gap-4 text-newGray-700 dark:text-white font-medium hover:text-newGray-200 dark:hover:text-newGray-50 transition-colors"
           rel="noopener noreferrer" 
           target="_blank" 
           title={title}
         >
           Ver Projeto
-          
-          <Image
-            src={ArrowRightIcon}
-            width={24}
-            height={24}
-            alt="Seta indicativa para o lado direito"
-            className="w-6 h-6"
-          />
+
+          <FiArrowRight className="w-6 h-6" />
         </a>
       </Link>
     </div>

@@ -1,13 +1,11 @@
 import { Popover } from "@headlessui/react"
-import Image, { StaticImageData } from "next/image"
+import { FiMenu, FiX } from 'react-icons/fi'
 import Link from "next/link"
 
 import { PopoverButton } from "../../atoms/PopoverButton"
 import { Button } from "../../atoms/Button"
 import { Theme } from "../../molecules/Theme"
-
-import MenuIcon from '../../../../public/assets/menu.svg'
-import XIcon from '../../../../public/assets/x.svg'
+import { ReactNode } from "react"
 
 interface NavProps {
   title: string
@@ -16,7 +14,7 @@ interface NavProps {
 
 interface NavSocialProps {
   title: string
-  icon: StaticImageData
+  icon: ReactNode
   url: string
   alt: string
 }
@@ -31,20 +29,18 @@ function Navigation({ navigate, social }: NavigationProps) {
     <Popover>
       {({ close }) => (
         <>
-          <PopoverButton
-            alt="Ícone de navegação do menu"
-            src={MenuIcon}
-          />
+          <PopoverButton>
+            <FiMenu className="w-6 h-6 text-newGray-700 dark:text-white" />
+          </PopoverButton>
 
           <Popover.Panel className="absolute top-0 left-0 w-full h-full bg-white px-6 py-8 flex box-border dark:bg-newGray-800">
             <div className="flex flex-1 flex-col justify-between">
               <div className="flex items-center justify-between w-full">
                 <Theme />
 
-                <PopoverButton
-                  alt="Ícone X para fechamento do menu"
-                  src={XIcon}
-                />
+                <PopoverButton>
+                  <FiX className="w-6 h-6 text-newGray-700 dark:text-white" />
+                </PopoverButton>
               </div>
 
               <nav className="w-full">
@@ -56,7 +52,7 @@ function Navigation({ navigate, social }: NavigationProps) {
                           <Link href={nav.anchor}>
                             <a
                               title={nav.title}
-                              className="font-bold text-xl text-newGray-500 dark:text-white hover:text-newGray-700 dark:hover:text-newGray-50 transition-colors float-left w-full transition-colors"
+                              className="font-bold text-xl text-newGray-500 dark:text-white hover:text-newGray-700 dark:hover:text-newGray-50 float-left w-full transition-colors"
                             >
                               {nav.title}
                             </a>
@@ -82,10 +78,7 @@ function Navigation({ navigate, social }: NavigationProps) {
                             target="_blank"
                             title={network.title}
                           >
-                            <Image
-                              src={network.icon}
-                              alt={network.alt}
-                            />
+                            {network.icon}
                           </a>
                         </Link>
                       </li>

@@ -1,9 +1,7 @@
+import { FiGithub, FiInstagram, FiLinkedin, } from "react-icons/fi";
+
 import { Logo } from "../../atoms/Logo";
 import { Navigation } from "../../organisms/Navigation";
-
-import InstagramIco from '../../../../public/assets/instagram.svg'
-import GitHubIco from '../../../../public/assets/github.svg'
-import LinkedInIco from '../../../../public/assets/linkedin.svg'
 
 const urls = [
   {
@@ -23,19 +21,19 @@ const urls = [
 const socials = [
   {
     title: 'Instagram',
-    icon: InstagramIco,
+    icon: <FiInstagram className="w-6 h-6 text-newGray-700 dark:text-white" />,
     url: 'https://www.instagram.com/charleston.amaral/',
     alt: 'Ícone da rede social Instagram'
   },
   {
     title: 'GitHub',
-    icon: GitHubIco,
+    icon: <FiGithub className="w-6 h-6 text-newGray-700 dark:text-white" />,
     url: 'https://github.com/charleskx',
     alt: 'Ícone da rede social GitHub'
   },
   {
     title: 'LinkedIn',
-    icon: LinkedInIco,
+    icon: <FiLinkedin className="w-6 h-6 text-newGray-700 dark:text-white" />,
     url: 'https://www.linkedin.com/in/charleston-amaral-a0870452/',
     alt: 'Ícone da rede social LinkedIn'
   }
