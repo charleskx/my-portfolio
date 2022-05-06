@@ -18,27 +18,27 @@ const urls = [
   },
   {
     id: 12,
-    title: 'Contate',
+    title: 'Contato',
     anchor: '#contactUs'
   }
 ]
 
-const socials = [
+export const socials = [
   {
     title: 'Instagram',
-    icon: <FiInstagram className="w-6 h-6 text-newGray-700 dark:text-white" />,
+    icon: <FiInstagram className="w-6 h-6 text-newGray-700 hover:text-newGray-500 dark:text-white dark:hover:text-newGray-50 transition-colors" />,
     url: 'https://www.instagram.com/charleston.amaral/',
     alt: 'Ícone da rede social Instagram'
   },
   {
     title: 'GitHub',
-    icon: <FiGithub className="w-6 h-6 text-newGray-700 dark:text-white" />,
+    icon: <FiGithub className="w-6 h-6 text-newGray-700 hover:text-newGray-500 dark:text-white dark:hover:text-newGray-50 transition-colors" />,
     url: 'https://github.com/charleskx',
     alt: 'Ícone da rede social GitHub'
   },
   {
     title: 'LinkedIn',
-    icon: <FiLinkedin className="w-6 h-6 text-newGray-700 dark:text-white" />,
+    icon: <FiLinkedin className="w-6 h-6 text-newGray-700 hover:text-newGray-500 dark:text-white dark:hover:text-newGray-50 transition-colors" />,
     url: 'https://www.linkedin.com/in/charleston-amaral-a0870452/',
     alt: 'Ícone da rede social LinkedIn'
   }
@@ -46,7 +46,7 @@ const socials = [
 
 function Header() {
   return (
-    <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white dark:bg-newGray-200 md:px-32 md:py-12 md:relative md:justify-center">
+    <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white dark:bg-newGray-200 md:px-32 md:py-12 md:relative md:justify-center md:relative">
       <div className="md:w-full md:max-w-7xl md:relative md:flex md:items-center md:justify-between">
         <nav className="hidden md:block">
           <ul className="flex gap-12">
@@ -55,7 +55,7 @@ function Header() {
                 return (
                   <li key={network.id}>
                     <Link href={network.anchor}>
-                      <a className="font-medium text-base text-newGray-700 dark:text-white">
+                      <a className="font-medium text-base text-newGray-700 hover:text-newGray-500 dark:text-white dark:hover:text-newGray-50 transition-colors">
                         {network.title}
                       </a>
                     </Link>
