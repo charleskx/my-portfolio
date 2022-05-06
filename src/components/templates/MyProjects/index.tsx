@@ -1,9 +1,9 @@
-import { ContainerProjects, ContainerProjectsProps } from "../../organisms/ContainerProjects"
+import { Projects, ProjectsProps } from "../../organisms/Projects"
 
-function MyProjects({ projects }: ContainerProjectsProps) {
+function MyProjects({ projects }: ProjectsProps) {
   return (
     <section id="projects" className="bg-white px-6 pt-9 pb-16">
-      <ContainerProjects projects={projects} />
+      <Projects projects={projects} />
     </section>
   )
 }

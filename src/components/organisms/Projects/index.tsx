@@ -1,16 +1,16 @@
 import { Paragraph } from "../../atoms/Paragraph"
-import { CardProject, CardProjectProps } from "../../molecules/CardProject"
+import { Project, ProjectProps } from "../../molecules/Project"
 import { Heading } from "../../molecules/Heading"
 
-interface ProjectProps extends CardProjectProps {
+interface ProjectsItemProps extends ProjectProps {
   id: number
 }
 
-export interface ContainerProjectsProps {
-  projects?: Array<ProjectProps>
+export interface ProjectsProps {
+  projects?: Array<ProjectsItemProps>
 }
 
-function ContainerProjects({ projects }: ContainerProjectsProps) {
+function Projects({ projects }: ProjectsProps) {
   return (
     <>
       <Heading
@@ -26,7 +26,7 @@ function ContainerProjects({ projects }: ContainerProjectsProps) {
         {
           projects?.map((project) => {
             return (
-              <CardProject
+              <Project
                 key={project.id}
                 description={project.description}
                 title={project.title}
@@ -40,4 +40,4 @@ function ContainerProjects({ projects }: ContainerProjectsProps) {
   )
 }
 
-export { ContainerProjects }
+export { Projects }

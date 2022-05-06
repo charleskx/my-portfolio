@@ -1,24 +1,19 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { Paragraph } from "../../atoms/Paragraph"
-import { Subtitle } from "../../atoms/Subtitle"
-
 import ArrowRightIcon from '../../../../public/assets/arrowRight.svg'
+import { Card } from "../Card"
 
-export interface CardProjectProps {
+export interface ProjectProps {
   title: string
   description: string
   url: string
 }
 
-function CardProject({ description, title, url }: CardProjectProps) {
+function Project({ description, title, url }: ProjectProps) {
   return (
     <div className="flex flex-col gap-4 items-end">
-      <article className="flex flex-col gap-2 w-full">
-        <Subtitle>{title}</Subtitle>
-        <Paragraph>{description}</Paragraph>
-      </article>
+      <Card description={description} title={title} />
 
       <Link href={url}>
         <a
@@ -42,4 +37,4 @@ function CardProject({ description, title, url }: CardProjectProps) {
   )
 }
 
-export { CardProject }
+export { Project }

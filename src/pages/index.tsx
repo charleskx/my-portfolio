@@ -5,8 +5,8 @@ import type { GetStaticProps, NextPage } from 'next'
 import { Footer } from '../components/templates/Footer'
 import { ContactUs } from '../components/templates/ContactUs'
 import { MyProjects } from '../components/templates/MyProjects'
-import { ContainerProjectsProps } from '../components/organisms/ContainerProjects'
-import { CardProjectProps } from '../components/molecules/CardProject'
+import { ProjectsProps } from '../components/organisms/Projects'
+import { ProjectProps } from '../components/molecules/Project'
 
 interface IGitHub {
   id: number
@@ -15,7 +15,7 @@ interface IGitHub {
   description?: string
 }
 
-interface IProjects extends CardProjectProps {
+interface IProjects extends ProjectProps {
   id: number
 }
 
@@ -38,7 +38,7 @@ const Home: NextPage = ({ projects }: HomeProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects: ContainerProjectsProps = await fetch('https://api.github.com/users/charleskx/repos')
+  const projects: ProjectsProps = await fetch('https://api.github.com/users/charleskx/repos')
     .then((response) => response.json())
     .then((data) => {
       return data.sort((a: IGitHub, b: IGitHub) => b.id - a.id)
