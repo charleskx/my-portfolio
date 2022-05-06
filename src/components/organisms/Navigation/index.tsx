@@ -4,6 +4,7 @@ import Link from "next/link"
 
 import { PopoverButton } from "../../atoms/PopoverButton"
 import { Button } from "../../atoms/Button"
+import { Theme } from "../../molecules/Theme"
 
 import MenuIcon from '../../../../public/assets/menu.svg'
 import XIcon from '../../../../public/assets/x.svg'
@@ -38,7 +39,7 @@ function Navigation({ navigate, social }: NavigationProps) {
           <Popover.Panel className="absolute top-0 left-0 w-full h-full bg-white px-6 py-8 flex box-border">
             <div className="flex flex-1 flex-col justify-between">
               <div className="flex items-center justify-between w-full">
-                <button type="button">Alterar tema</button>
+                <Theme />
 
                 <PopoverButton
                   alt="Ícone X para fechamento do menu"
