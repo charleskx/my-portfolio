@@ -9,6 +9,7 @@ import { ProjectsProps } from '../components/organisms/Projects'
 import { ProjectProps } from '../components/molecules/Project'
 import { AboutUs } from '../components/templates/AboutUs'
 import { Intro } from '../components/templates/Intro'
+import { Header } from '../components/templates/Header'
 
 interface IGitHub {
   id: number
@@ -32,6 +33,7 @@ const Home: NextPage = ({ projects }: HomeProps) => {
         <title>Charleston Amaral - Desenvolvedor Web Full Stack</title>
       </Head>
 
+      <Header />
       <Intro />
       <AboutUs />
       <MyProjects projects={projects} />
