@@ -1,21 +1,43 @@
 import { Logo } from "../../atoms/Logo";
 import { Navigation } from "../../organisms/Navigation";
 
+import InstagramIco from '../../../../public/assets/instagram.svg'
+import GitHubIco from '../../../../public/assets/github.svg'
+import LinkedInIco from '../../../../public/assets/linkedin.svg'
+
 const urls = [
   {
-    id: 1,
     title: 'Sobre',
     anchor: '#aboutUs'
   },
   {
-    id: 2,
     title: 'Projetos',
     anchor: '#projects'
   },
   {
-    id: 1,
     title: 'Contate',
     anchor: '#ContactUs'
+  }
+]
+
+const socials = [
+  {
+    title: 'Instagram',
+    icon: InstagramIco,
+    url: 'https://www.instagram.com/charleston.amaral/',
+    alt: 'Ícone da rede social Instagram'
+  },
+  {
+    title: 'GitHub',
+    icon: GitHubIco,
+    url: 'https://github.com/charleskx',
+    alt: 'Ícone da rede social GitHub'
+  },
+  {
+    title: 'LinkedIn',
+    icon: LinkedInIco,
+    url: 'https://www.linkedin.com/in/charleston-amaral-a0870452/',
+    alt: 'Ícone da rede social LinkedIn'
   }
 ]
 
@@ -24,7 +46,7 @@ function Header() {
     <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white">
       <Logo isHeading>Charleston Amaral.</Logo>
 
-      <Navigation navigate={urls} />
+      <Navigation navigate={urls} social={socials} />
     </header>
   )
 }
