@@ -37,7 +37,9 @@ const Home: NextPage = ({ projects }: HomeProps) => {
 
   const colorTheme = theme === 'dark' ? '#2B3641' : '#FFFFFF'
 
-  window.addEventListener('scroll', () => setScroll(window.scrollY > 500))
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', () => setScroll(window.scrollY > 500))
+  }
 
   return (
     <>
