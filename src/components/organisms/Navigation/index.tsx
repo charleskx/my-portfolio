@@ -36,7 +36,7 @@ function Navigation({ navigate, social }: NavigationProps) {
             src={MenuIcon}
           />
 
-          <Popover.Panel className="absolute top-0 left-0 w-full h-full bg-white px-6 py-8 flex box-border">
+          <Popover.Panel className="absolute top-0 left-0 w-full h-full bg-white px-6 py-8 flex box-border dark:bg-newGray-800">
             <div className="flex flex-1 flex-col justify-between">
               <div className="flex items-center justify-between w-full">
                 <Theme />
@@ -56,7 +56,7 @@ function Navigation({ navigate, social }: NavigationProps) {
                           <Link href={nav.anchor}>
                             <a
                               title={nav.title}
-                              className="font-bold text-xl text-newGray-500 hover:text-newGray-700 transition-colors float-left w-full"
+                              className="font-bold text-xl text-newGray-500 dark:text-white hover:text-newGray-700 dark:hover:text-newGray-50 transition-colors float-left w-full transition-colors"
                             >
                               {nav.title}
                             </a>

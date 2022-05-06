@@ -8,7 +8,7 @@ export interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
 function Paragraph({ children, className, ...props }: ParagraphProps) {
   return (
     <p
-      className={`text-newGray-700 text-xs leading-4 ${className}`}
+      className={`text-newGray-700 dark:text-white text-xs leading-4 ${className}`}
       {...props}
     >
       {children}

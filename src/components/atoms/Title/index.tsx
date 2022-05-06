@@ -6,7 +6,7 @@ interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
 
 function Title({ children, ...props }: TitleProps) {
   return (
-    <h2 className="text-newGray-700 text-sm" {...props}>
+    <h2 className="text-newGray-700 dark:text-white text-sm" {...props}>
       {children}
     </h2>
   )

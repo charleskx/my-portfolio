@@ -43,7 +43,7 @@ const socials = [
 
 function Header() {
   return (
-    <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white">
+    <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white dark:bg-newGray-200">
       <Logo isHeading>Charleston Amaral.</Logo>
 
       <Navigation navigate={urls} social={socials} />

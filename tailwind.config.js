@@ -10,8 +10,10 @@ module.exports = {
         newGray: {
           50: '#FBFBFB',
           100: '#DBDBDB',
+          200: '#2B3641',
           500: '#323232',
-          700: '#1E1E1E'
+          700: '#1E1E1E',
+          800: '#1A2027'
         },
         newIndigo: {
           400: '#63BA90'

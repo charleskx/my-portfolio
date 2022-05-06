@@ -8,7 +8,7 @@ export interface LogoProps {
 
 function Logo({ children, className, isHeading = false }: LogoProps) {
   return (
-  <h1 className={`text-newGray-700 font-bold text-sm ${isHeading && 'text-base'} ${className}`}>
+  <h1 className={`text-newGray-700 dark:text-white font-bold text-sm ${isHeading && 'text-base'} ${className}`}>
     {children}
   </h1>
   )

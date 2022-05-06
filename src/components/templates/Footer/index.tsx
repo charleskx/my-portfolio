@@ -3,7 +3,7 @@ import { Paragraph } from "../../atoms/Paragraph"
 
 function Footer() {
   return (
-    <footer className="flex gap-1 flex-col px-6 py-8 bg-white">
+    <footer className="flex gap-1 flex-col px-6 py-8 bg-white dark:bg-newGray-200">
       <Logo>Charleston Amaral.</Logo>
 
       <Paragraph>

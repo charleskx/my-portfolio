@@ -20,7 +20,7 @@ const experiences = [
 
 function AboutUs() {
   return (
-    <section id="aboutUs" className="px-6 pt-9 pb-16 bg-newGray-50">
+    <section id="aboutUs" className="px-6 pt-9 pb-16 bg-newGray-50 dark:bg-newGray-800">
       <Experiences experiences={experiences} />
     </section>
   )

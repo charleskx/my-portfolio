@@ -17,7 +17,7 @@ function Project({ description, title, url }: ProjectProps) {
 
       <Link href={url}>
         <a
-          className="flex justify-center gap-4 text-newGray-700 font-medium opacity-80 hover:opacity-100 transition-opacity"
+          className="flex justify-center gap-4 text-newGray-700 dark:text-white font-medium opacity-80 hover:opacity-100 transition-opacity"
           rel="noopener noreferrer" 
           target="_blank" 
           title={title}
