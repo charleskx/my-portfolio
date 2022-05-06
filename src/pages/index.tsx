@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes"
 import Head from 'next/head'
 
 import type { GetStaticProps, NextPage } from 'next'
@@ -27,10 +28,15 @@ interface HomeProps {
 }
 
 const Home: NextPage = ({ projects }: HomeProps) => {
+  const { theme } = useTheme();
+
+  const colorTheme = theme === 'dark' ? '#2B3641' : '#FFFFFF'
+
   return (
     <>
       <Head>
         <title>Charleston Amaral - Desenvolvedor Web Full Stack</title>
+        <meta name="theme-color" content={colorTheme} />
       </Head>
 
       <Header />
