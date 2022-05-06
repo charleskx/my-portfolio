@@ -1,5 +1,6 @@
 import { useTheme } from "next-themes"
 import { FiArrowUp } from "react-icons/fi"
+import { useState } from "react"
 import Head from 'next/head'
 
 import type { GetStaticProps, NextPage } from 'next'
@@ -13,7 +14,6 @@ import { AboutUs } from '../components/templates/AboutUs'
 import { Intro } from '../components/templates/Intro'
 import { Header } from '../components/templates/Header'
 import { IconButton } from "../components/atoms/IconButton"
-import { useEffect, useState } from "react"
 
 interface IGitHub {
   id: number
@@ -48,7 +48,7 @@ const Home: NextPage = ({ projects }: HomeProps) => {
         <meta name="theme-color" content={colorTheme} />
       </Head>
 
-      { scroll &&
+      { typeof window !== 'undefined' && scroll &&
         (
           <IconButton 
             className="hidden md:flex items-center justify-center w-9 h-9 border-2 rounded-full fixed z-10 right-8 bottom-8 text-newGray-700 hover:text-newGray-200 border-newGray-700 dark:text-white dark:hover:text-newGray-50 dark:border-white transition-colors"
