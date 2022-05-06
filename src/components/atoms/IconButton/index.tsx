@@ -1,25 +1,20 @@
-import { ButtonHTMLAttributes } from "react";
-import Image, { StaticImageData } from "next/image";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  src: StaticImageData,
-  alt: string
+  children: ReactNode
 }
 
-function IconButton({ alt, src, ...props }: IconButtonProps) {
+function IconButton({ children, ...props }: IconButtonProps) {
   return (
-    <button
-      type="button"
-      className="w-6 h-6 flex justify-center items-center m-0 p-0 opacity-80 hover:opacity-100 transition-opacity"
-      {...props}
-    >
-      <Image
-        width={24}
-        height={24}
-        src={src}
-        alt={alt}
-      />
-    </button>
+    <div>
+      <button
+        type="button"
+        className="w-6 h-6 flex justify-center items-center m-0 p-0 opacity-80 hover:opacity-100 transition-opacity"
+        {...props}
+      >
+        {children}
+      </button>
+    </div>
   )
 }
 

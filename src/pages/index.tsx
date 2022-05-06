@@ -1,4 +1,5 @@
 import { useTheme } from "next-themes"
+import { FiArrowUp } from "react-icons/fi"
 import Head from 'next/head'
 
 import type { GetStaticProps, NextPage } from 'next'
@@ -11,6 +12,8 @@ import { ProjectProps } from '../components/molecules/Project'
 import { AboutUs } from '../components/templates/AboutUs'
 import { Intro } from '../components/templates/Intro'
 import { Header } from '../components/templates/Header'
+import { IconButton } from "../components/atoms/IconButton"
+import { useEffect, useState } from "react"
 
 interface IGitHub {
   id: number
@@ -28,9 +31,13 @@ interface HomeProps {
 }
 
 const Home: NextPage = ({ projects }: HomeProps) => {
-  const { theme } = useTheme();
+  const [scroll, setScroll] = useState(false)
+
+  const { theme } = useTheme()
 
   const colorTheme = theme === 'dark' ? '#2B3641' : '#FFFFFF'
+
+  window.addEventListener('scroll', () => setScroll(window.scrollY > 500))
 
   return (
     <>
@@ -38,6 +45,19 @@ const Home: NextPage = ({ projects }: HomeProps) => {
         <title>Charleston Amaral - Desenvolvedor Web Full Stack</title>
         <meta name="theme-color" content={colorTheme} />
       </Head>
+
+      { scroll &&
+        (
+          <IconButton 
+            className="hidden md:flex items-center justify-center w-9 h-9 border-2 rounded-full fixed z-10 right-8 bottom-8 text-newGray-700 hover:text-newGray-200 border-newGray-700 dark:text-white dark:hover:text-newGray-50 dark:border-white transition-colors"
+            onClick={() => window.scrollTo({ top: 0 })}
+          >
+            <FiArrowUp
+              className="w-6 h-6"
+            />
+          </IconButton>
+        )
+      }
 
       <Header />
       <Intro />
