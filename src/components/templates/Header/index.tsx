@@ -16,7 +16,7 @@ const urls = [
   },
   {
     title: 'Contate',
-    anchor: '#ContactUs'
+    anchor: '#contactUs'
   }
 ]
 
