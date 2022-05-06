@@ -18,7 +18,7 @@ function Experience({ description, title, noLine = false }: ExperienceProps) {
       <Card
         description={description}
         title={title}
-        className="mb-2"
+        className={noLine ? '' : 'mb-8'}
       />
     </li>
   )

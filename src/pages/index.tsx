@@ -7,7 +7,7 @@ import { ContactUs } from '../components/templates/ContactUs'
 import { MyProjects } from '../components/templates/MyProjects'
 import { ProjectsProps } from '../components/organisms/Projects'
 import { ProjectProps } from '../components/molecules/Project'
-import { Experiences } from '../components/organisms/Experiences'
+import { AboutUs } from '../components/templates/AboutUs'
 
 interface IGitHub {
   id: number
@@ -31,26 +31,7 @@ const Home: NextPage = ({ projects }: HomeProps) => {
         <title>Charleston Amaral - Desenvolvedor Web Full Stack</title>
       </Head>
 
-      <Experiences
-        experiences={[
-          {
-            description: 'Soluções de automação para controle de abastecimento.',
-            id: 1,
-            title: 'Analista de Sistemas - Unidata'
-          },
-          {
-            description: 'Soluções de automação para controle de abastecimento.',
-            id: 2,
-            title: 'Analista de Sistemas - Unidata'
-          },
-          {
-            description: 'Soluções de automação para controle de abastecimento.',
-            id: 3,
-            title: 'Analista de Sistemas - Unidata'
-          }
-        ]}
-      />
-      
+      <AboutUs />
       <MyProjects projects={projects} />
       <ContactUs />
       <Footer />
