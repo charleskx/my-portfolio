@@ -46,8 +46,8 @@ const socials = [
 
 function Header() {
   return (
-    <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white dark:bg-newGray-200 md:px-0 md:py-12 md:relative md:justify-center">
-      <div className="md:max-w-7xl md:w-full md:relative md:flex md:items-center md:justify-between">
+    <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white dark:bg-newGray-200 md:px-32 md:py-12 md:relative md:justify-center">
+      <div className="md:w-full md:max-w-7xl md:relative md:flex md:items-center md:justify-between">
         <nav className="hidden md:block">
           <ul className="flex gap-12">
             {
