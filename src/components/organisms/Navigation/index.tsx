@@ -26,14 +26,14 @@ export interface NavigationProps {
 
 function Navigation({ navigate, social }: NavigationProps) {
   return (
-    <Popover className="md:hidden">
+    <Popover className="lg:hidden">
       {({ close }) => (
         <>
           <PopoverButton>
             <FiMenu className="w-6 h-6 text-newGray-700 dark:text-white" />
           </PopoverButton>
 
-          <Popover.Panel className="absolute top-0 left-0 w-full h-full bg-white px-6 py-8 flex box-border dark:bg-newGray-800">
+          <Popover.Panel className="absolute top-0 left-0 z-20 w-full h-full bg-white px-6 py-8 flex box-border md:px-32 md:py-12 md:h-screen shadow dark:bg-newGray-800">
             <div className="flex flex-1 flex-col justify-between">
               <div className="flex items-center justify-between w-full">
                 <Theme />

@@ -51,7 +51,7 @@ const Home: NextPage = ({ projects }: HomeProps) => {
       { typeof window !== 'undefined' && scroll &&
         (
           <IconButton 
-            className="hidden md:flex items-center justify-center w-9 h-9 border-2 rounded-full fixed z-10 right-8 bottom-8 text-newGray-700 hover:text-newGray-200 border-newGray-700 dark:text-white dark:hover:text-newGray-50 dark:border-white transition-colors"
+            className="hidden lg:flex items-center justify-center w-9 h-9 border-2 rounded-full fixed z-10 right-8 bottom-8 text-newGray-700 hover:text-newGray-200 border-newGray-700 dark:text-white dark:hover:text-newGray-50 dark:border-white transition-colors transition-all"
             onClick={() => window.scrollTo({ top: 0 })}
           >
             <FiArrowUp

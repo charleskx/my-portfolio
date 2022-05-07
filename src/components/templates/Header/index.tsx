@@ -48,7 +48,7 @@ function Header() {
   return (
     <header className="flex items-center justify-between px-6 pb-10 pt-8 bg-white dark:bg-newGray-200 md:px-32 md:py-12 md:relative md:justify-center md:relative">
       <div className="md:w-full md:max-w-7xl md:relative md:flex md:items-center md:justify-between">
-        <nav className="hidden md:block">
+        <nav className="hidden lg:block">
           <ul className="flex gap-12">
             {
               urls.map((network) => {
@@ -66,9 +66,9 @@ function Header() {
           </ul>
         </nav>
 
-        <Logo isHeading className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2">Charleston Amaral.</Logo>
+        <Logo isHeading className="lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">Charleston Amaral.</Logo>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Theme />
         </div>
       </div>
