@@ -33,6 +33,8 @@ export default class MyDocument extends Document {
           <meta property="twitter:image" content="https://user-images.githubusercontent.com/9272098/134539925-8b9f858e-00a2-48c9-9189-f3b0c17f15d2.jpg" />
           <meta property="twitter:url" content="https://www.charlestonamaral.com.br" />
 
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <link rel="base" href="https://www.charlestonamaral.com.br" />
           <link rel="canonical" href="https://www.charlestonamaral.com.br" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
