@@ -29,7 +29,7 @@ function Navigation({ navigate, social }: NavigationProps) {
     <Popover className="lg:hidden">
       {({ close }) => (
         <>
-          <PopoverButton>
+          <PopoverButton alt="show menu mobile">
             <FiMenu className="w-6 h-6 text-newGray-700 dark:text-white" />
           </PopoverButton>
 
@@ -38,7 +38,7 @@ function Navigation({ navigate, social }: NavigationProps) {
               <div className="flex items-center justify-between w-full">
                 <Theme />
 
-                <PopoverButton>
+                <PopoverButton alt="close menu mobile">
                   <FiX className="w-6 h-6 text-newGray-700 dark:text-white" />
                 </PopoverButton>
               </div>
