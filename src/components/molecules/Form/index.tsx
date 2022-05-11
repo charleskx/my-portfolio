@@ -109,12 +109,12 @@ function Form() {
               component={TextArea}
             />
 
-            <div className="flex items-center gap-4">
-              <Paragraph className={messageSent?.type === 'success' ? 'text-green-500 text-right' : 'text-red-500 text-right'}>
+            <div className="flex flex-col items-center gap-4 md:flex-row">
+              <Paragraph className={`${messageSent?.type === 'success' ? 'text-green-500' : 'text-red-500'} text-center md:text-right md:flex-1`}>
                 {messageSent?.message}
               </Paragraph>
 
-              <Button className="md:w-52" type="submit" loading={loading}>
+              <Button className="w-full md:w-52" type="submit" loading={loading}>
                 Enviar
               </Button>
             </div>

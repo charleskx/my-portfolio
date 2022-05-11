@@ -13,7 +13,7 @@ function Hero() {
         Sinta-se a vontade para visualizar meu curriculum vitae e conhecer minhas experiências profissionais.
       </Paragraph>
 
-      <Button className="md:w-52">Download Resume</Button>
+      <Button className="md:w-52" onClick={() => window.open('https://charlestonamaral.com.br/curriculo_charleston.docx')}>Download Resume</Button>
     </div>
   )
 }
