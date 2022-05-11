@@ -1,8 +1,10 @@
 import { Field, Formik } from "formik"
+import { useState } from "react"
 import * as Yup from "yup"
 
 import { Button } from "../../atoms/Button"
 import { Input } from "../../atoms/Input"
+import { Paragraph } from "../../atoms/Paragraph"
 import { TextArea } from "../../atoms/TextArea"
 
 interface IForm {
@@ -12,7 +14,15 @@ interface IForm {
   message: string
 }
 
+interface IMessageSent {
+  type: 'success' | 'error'
+  message: string
+}
+
 function Form() {
+  const [loading, setLoading] = useState(false)
+  const [messageSent, setMessageSent] = useState<IMessageSent>()
+
   const initialValues: IForm = {
     email: '',
     message: '',
@@ -34,8 +44,32 @@ function Form() {
   })
 
   const onSubmitting = async (data: IForm) => {
-    // TODO: tratamento do formulário
-    console.log('onSubmitting', data)
+    try {
+      setLoading(true)
+
+      const formData = new FormData()
+
+      Object.entries(data).forEach(([key, value]) => {
+        formData.append(key, value)
+      })
+
+      await fetch('https://getform.io/f/3677f0cb-38ab-471b-851b-5350e9a0f092', {
+        method: 'POST',
+        body: formData
+      })
+
+      setMessageSent({
+        message: 'Mensagem enviada com sucesso! Retornaremos o seu contato o mais breve possível.',
+        type: 'success'
+      })
+    } catch (error) {
+      setMessageSent({
+        message: 'Houve um erro ao enviar o formulário. Tente novamente!',
+        type: 'error'
+      })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -75,7 +109,15 @@ function Form() {
               component={TextArea}
             />
 
-            <Button className="w-full md:w-52" type="submit">Enviar</Button>
+            <div className="flex items-center gap-4">
+              <Paragraph className={messageSent?.type === 'success' ? 'text-green-500 text-right' : 'text-red-500 text-right'}>
+                {messageSent?.message}
+              </Paragraph>
+
+              <Button className="md:w-52" type="submit" loading={loading}>
+                Enviar
+              </Button>
+            </div>
           </form>
         )
       }
