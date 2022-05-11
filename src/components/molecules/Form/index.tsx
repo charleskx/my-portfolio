@@ -1,4 +1,6 @@
-import { SubmitHandler, useForm } from "react-hook-form"
+import { Field, Formik } from "formik"
+import * as Yup from "yup"
+
 import { Button } from "../../atoms/Button"
 import { Input } from "../../atoms/Input"
 import { TextArea } from "../../atoms/TextArea"
@@ -6,44 +8,78 @@ import { TextArea } from "../../atoms/TextArea"
 interface IForm {
   name: string
   email: string
-  subject: string
+  subject?: string
   message: string
 }
 
 function Form() {
-  const { handleSubmit } = useForm<IForm>()
+  const initialValues: IForm = {
+    email: '',
+    message: '',
+    name: '',
+    subject: ''
+  }
 
-  const onSubmitting: SubmitHandler<IForm> = (data) => {
+  const contactSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('Informe um endereço de e-mail válido.')
+      .required('Informe um endereço de e-mail.'),
+    message: Yup.string()
+      .required('Informe sua mensagem')
+      .min(10, 'Sua mensagem deve conter mais que 10 caracteres.'),
+    name: Yup.string()
+      .required('Informe seu nome.')
+      .min(10, 'Por favor, informe seu nome completo.'),
+    subject: Yup.string().nullable()
+  })
+
+  const onSubmitting = async (data: IForm) => {
     // TODO: tratamento do formulário
+    console.log('onSubmitting', data)
   }
 
   return (
-    <form
-      className="flex flex-col gap-4 md:gap-6 md:items-end"
-      onSubmit={handleSubmit(onSubmitting)}
+    <Formik
+      onSubmit={onSubmitting}
+      initialValues={initialValues}
+      validationSchema={contactSchema}
     >
-      <Input
-        name="name"
-        placeholder="Nome Completo"
-        validation={{ required: true, min: 5 }}
-      />
+      {
+        ({ handleSubmit }) => (
+          <form
+            className="flex flex-col gap-4 md:gap-6 md:items-end"
+            onSubmit={handleSubmit}
+          >
+            <Field
+              name="name"
+              placeholder="Nome Completo"
+              component={Input}
+            />
 
-      <Input
-        name="email"
-        placeholder="E-mail"
-        validation={{ required: true, pattern: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i }}
-      />
+            <Field
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              component={Input}
+            />
 
-      <Input name="subject" placeholder="Assunto (Opcional)" />
+            <Field
+              name="subject"
+              placeholder="Assunto (Opcional)"
+              component={Input}
+            />
 
-      <TextArea
-        name="message"
-        placeholder="Mensagem"
-        validation={{ required: true, min: 10 }}
-      />
+            <Field
+              name="message"
+              placeholder="Mensagem"
+              component={TextArea}
+            />
 
-      <Button className="w-full md:w-52" type="submit">Enviar</Button>
-    </form>
+            <Button className="w-full md:w-52" type="submit">Enviar</Button>
+          </form>
+        )
+      }
+    </Formik>
   )
 }
 

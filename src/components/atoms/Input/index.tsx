@@ -1,27 +1,20 @@
-import { InputHTMLAttributes } from 'react'
-import { useForm, RegisterOptions } from 'react-hook-form'
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react'
+import { ErrorMessage, FieldProps } from 'formik'
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  name: string
-  validation?: RegisterOptions
-}
+type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-function Input({ name, validation, ...props }: InputProps) {
-  const { register, formState: { errors } } = useForm()
-
+function Input({ field, form: _, ...props }: FieldProps & InputProps) {
   return (
     <div className='flex flex-col gap-1 w-full'>
       <input
         className='border border-newGray-100 dark:border-white bg-white dark:bg-newGray-800 rounded-xl px-4 py-2 text-xs leading-6 text-newGray-700 dark:text-white placeholder:opacity-30 focus:outline-newGray-700 dark:focus:outline-white md:px-6 md:py-5 md:text-base'
-        {...register(name, validation)}
+        {...field}
         {...props}
       />
 
-      {errors && (
-        <span className='text-xs text-red-600 md:text-base'>
-          {errors[name]?.message}
-        </span>
-      )}
+      <span className="text-xs text-red-600 md:text-base">
+        <ErrorMessage name={field.name} />
+      </span>
     </div>
   )
 }
