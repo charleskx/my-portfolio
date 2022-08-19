@@ -1,19 +1,18 @@
 import { useTheme } from "next-themes"
-import { FiArrowUp } from "react-icons/fi"
-import { useState } from "react"
 import Head from 'next/head'
+import { useEffect, useState } from "react"
+import { FiArrowUp } from "react-icons/fi"
 
-import type { GetStaticProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 
-import { Footer } from '../components/templates/Footer'
-import { ContactUs } from '../components/templates/ContactUs'
-import { MyProjects } from '../components/templates/MyProjects'
-import { ProjectsProps } from '../components/organisms/Projects'
+import { IconButton } from "../components/atoms/IconButton"
 import { ProjectProps } from '../components/molecules/Project'
 import { AboutUs } from '../components/templates/AboutUs'
-import { Intro } from '../components/templates/Intro'
+import { ContactUs } from '../components/templates/ContactUs'
+import { Footer } from '../components/templates/Footer'
 import { Header } from '../components/templates/Header'
-import { IconButton } from "../components/atoms/IconButton"
+import { Intro } from '../components/templates/Intro'
+import { MyProjects } from '../components/templates/MyProjects'
 
 interface IGitHub {
   id: number
@@ -26,12 +25,9 @@ interface IProjects extends ProjectProps {
   id: number
 }
 
-interface HomeProps {
-  projects?: Array<IProjects>
-}
-
-const Home: NextPage = ({ projects }: HomeProps) => {
+const Home: NextPage = () => {
   const [scroll, setScroll] = useState(false)
+  const [projects, setProjects] = useState<Array<IProjects>>([])
 
   const { theme } = useTheme()
 
@@ -40,6 +36,27 @@ const Home: NextPage = ({ projects }: HomeProps) => {
   if (typeof window !== 'undefined') {
     window.addEventListener('scroll', () => setScroll(window.scrollY > 500))
   }
+
+  useEffect(() => {
+    (async () => {
+      const gitHubItems: Array<IProjects> = await fetch('https://api.github.com/users/charleskx/repos')
+      .then((response) => response.json())
+      .then((data) => {
+        return data.sort((a: IGitHub, b: IGitHub) => b.id - a.id)
+          .slice(0, 3)
+          .map((gitHub: IGitHub, key: number) => {
+            return {
+              id: gitHub.id,
+              description: gitHub.description ?? '',
+              title: `${(key + 1).toString().padStart(2, '0')}. ${gitHub.name}`,
+              url: gitHub.html_url
+            }
+          })
+      })
+
+      setProjects(gitHubItems)
+    })()
+  }, [])
 
   return (
     <>
@@ -69,29 +86,6 @@ const Home: NextPage = ({ projects }: HomeProps) => {
       <Footer />
     </>
   )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const projects: ProjectsProps = await fetch('https://api.github.com/users/charleskx/repos')
-    .then((response) => response.json())
-    .then((data) => {
-      return data.sort((a: IGitHub, b: IGitHub) => b.id - a.id)
-        .slice(0, 3)
-        .map((gitHub: IGitHub, key: number) => {
-          return {
-            id: gitHub.id,
-            description: gitHub.description ?? '',
-            title: `${(key + 1).toString().padStart(2, '0')}. ${gitHub.name}`,
-            url: gitHub.html_url
-          }
-        })
-    })
-
-  return {
-    props: {
-      projects
-    }
-  }
 }
 
 export default Home
