@@ -5,11 +5,11 @@ import type { AppProps } from 'next/app'
 
 import '../../styles/globals.css'
 
-useEffect(() => {
-  hotjar.initialize(3201606, 6)
-}, [])
-
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    hotjar.initialize(3201606, 6)
+  }, [])
+  
   return (
     <ThemeProvider attribute='class' defaultTheme='light'>
       <Component {...pageProps} />
