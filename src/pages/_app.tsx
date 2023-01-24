@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { ThemeProvider } from 'next-themes'
-import { hotjar } from 'react-hotjar'
 import type { AppProps } from 'next/app'
 
 import '../../styles/globals.css'
