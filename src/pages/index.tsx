@@ -14,6 +14,8 @@ import { Header } from '../components/templates/Header'
 import { Intro } from '../components/templates/Intro'
 import { MyProjects } from '../components/templates/MyProjects'
 
+import { removeHTMLTags } from '../helpers/words'
+
 interface IGitHub {
   id: number
   name: string
@@ -47,8 +49,8 @@ const Home: NextPage = () => {
           .map((gitHub: IGitHub, key: number) => {
             return {
               id: gitHub.id,
-              description: gitHub.description ?? '',
-              title: `${(key + 1).toString().padStart(2, '0')}. ${gitHub.name}`,
+              description: removeHTMLTags(gitHub.description ?? ''),
+              title: removeHTMLTags(`${(key + 1).toString().padStart(2, '0')}. ${gitHub.name}`),
               url: gitHub.html_url
             }
           })
