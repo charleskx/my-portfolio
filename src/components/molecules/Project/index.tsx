@@ -12,7 +12,7 @@ export interface ProjectProps {
 function Project({ description, title, url }: ProjectProps) {
   return (
     <div className="flex flex-col gap-4 items-end md:items-start">
-      <Card description={description} title={title} className="md:max-w-2xl" />
+      <Card description={description} title={title} className="md:max-w-2xl break-words" />
 
       <Link href={url}>
         <a
